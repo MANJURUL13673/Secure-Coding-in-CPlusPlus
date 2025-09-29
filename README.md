@@ -22,5 +22,8 @@ This repository demonstrates common security pitfalls in C++ programming and pro
 - **6_SecureDataParsing.cpp**  
   Demonstrates secure parsing of key-value input from users, including validation of keys and values, duplicate detection, and robust error handling.
 
-- **AvoidCStyleString.cpp**  
+- **7_AvoidCStyleString.cpp**  
   Explores the risks of using C-style strings, such as buffer overflows, lack of automatic memory management, and unsafe string manipulation functions. Shows how to use `std::string` and other modern C++ features to write safer and more reliable code.
+
+- **8_HandlingSensitiveData.cpp**  
+  It discuss on handling and clearing sensitive data. It suggests that `std::string` should not use for secret or sensitive data, if use then overwrite the memory after completing the task.
