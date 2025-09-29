@@ -27,3 +27,12 @@ This repository demonstrates common security pitfalls in C++ programming and pro
 
 - **8_HandlingSensitiveData.cpp**  
   It discuss on handling and clearing sensitive data. It suggests that `std::string` should not use for secret or sensitive data, if use then overwrite the memory after completing the task.
+
+- **9_PreventingInformationLeaksInLogs.cpp**  
+  Demonstrates the risks of logging sensitive information, such as passwords or secrets, which can lead to information leaks if logs are exposed. Shows safer logging practices by avoiding the inclusion of confidential data in log messages and only recording non-sensitive events or outcomes.
+
+- **10_HackingTheHardcodedPassword.txt**  
+  Highlights the dangers of hardcoding passwords or secrets directly in source code or configuration files. Demonstrates how attackers can easily discover and exploit hardcoded credentials, and emphasizes the importance of using secure methods for credential management, such as environment variables or secure vaults, instead of embedding sensitive information in code.
+
+- **11_SmartPointers.txt**  
+  Explains the advantages of using smart pointers in C++ for automatic and safe memory management. Highlights how smart pointers like `std::unique_ptr`, `std::shared_ptr`, and `std::weak_ptr` help prevent memory leaks, dangling pointers, and double-free errors, making code more robust and secure compared to manual memory management with raw pointers.

@@ -1,0 +1,40 @@
+Each smart pointer type serves a different purpose:
+
+1. std::unique_ptr owns a resource exclusively. It transfers ownership on move and deletes the resource on destruction.
+2. std::shared_ptr supports shared ownership with reference counting. The resource is deleted when the last shared_ptr is destroyed.
+3. std::weak_ptr observes a shared_ptr without affecting its lifetime. It avoids cycles and dangling access.
+
+Common pitfalls
+//---------------------------------------------
+auto p1 = std::make_shared<Resource>();
+auto p2 = p1;   // shared ownership
+
+
+Suggestion:
+if only one component should manage the resource, use the unique_ptr
+//---------------------------------------------
+
+//---------------------------------------------
+shared_ptr<Foo>a(new Foo);
+shared_ptr<Foo>b(a.get());  // dangerous: double delete
+So now both a and b believe they own the same raw pointer and will both attempt to delete it when destroyed, leading to double deletion.
+
+Suggestion:
+Always use std::make_shared() or ensure a resource is owned by one shared_ptr. Never wrap the same raw pointer in multiple smart pointers.
+//---------------------------------------------
+
+//---------------------------------------------
+auto ptr = std::make_shared<Foo>();
+Foo& ref = *ptr;
+if the smart pointer goes out of scope, ref becomes a dangling reference
+//---------------------------------------------
+
+//---------------------------------------------
+Suggestion:
+For non-memory resources like file handles or sockets, unique_ptr can be used safely by providing a custom deleter
+
+Example:
+unique_ptr<FILE, decltype(&fclose)>file(fopen("data.txt", "r"), fclose);
+
+In this case, fclose is the custom deleter. When file goes out of scope, fclose(file.get()) is automatically called, ensuring proper cleanup even on early returns or exceptions.
+//---------------------------------------------
