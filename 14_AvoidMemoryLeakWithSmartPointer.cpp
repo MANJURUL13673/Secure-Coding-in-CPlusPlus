@@ -23,5 +23,7 @@ int main() {
         DataChunk chunk(10000); // ~40 KB per chunk
         chunk.fill(i);
     }
+
+    std::cout << "Done." << std::endl;
     return 0;
 }
