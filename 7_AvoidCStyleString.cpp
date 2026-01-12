@@ -3,12 +3,19 @@
 #include <iostream>
 
 void sum() {
+<<<<<<< HEAD
 	int a = 5;
 	int b = 10;
 	int c = a + b;
 }
 
 int main()
+=======
+	
+}
+
+nt main()
+>>>>>>> Riyad
 {
 	char msg[32];
 	char name[10];
