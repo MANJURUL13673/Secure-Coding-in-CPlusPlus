@@ -14,3 +14,7 @@ int main()
     std::fill(std::begin(password), std::end(password), '\0'); // zeroing the buffer by overwritten
     return 0;
 }
+
+// Helper function to get input securely (implementation not shown)
+// Output: sdfjaskdfj
+// asdfkjasdkfajsdfkj
