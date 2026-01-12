@@ -21,3 +21,6 @@ int main()
 	std::cout << std::endl << std::endl;
 	return 0;
 }
+
+// Output (example):
+// Enter your name: Jonathan
