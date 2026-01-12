@@ -2,7 +2,11 @@
 
 #include <iostream>
 
-int main()
+void sum() {
+	
+}
+
+nt main()
 {
 	char msg[32];
 	char name[10];
